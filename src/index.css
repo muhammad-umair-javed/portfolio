@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    font-family: theme("fontFamily.sans");
+    background-color: theme("colors.canvas");
+    background-image: theme("backgroundImage.grid");
+    background-size: theme("backgroundSize.grid");
+    background-position: center top;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: theme("fontFamily.display");
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: theme("colors.accent.DEFAULT");
+    color: theme("colors.canvas");
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.accent.bright");
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Coordinate-frame corner brackets — the site's recurring visual signature,
+     echoing vision-calibration / robot tf-frame markers. Applied as a
+     decorative ::before/::after pair via the .frame class. */
+  .frame {
+    position: relative;
+  }
+  .frame::before,
+  .frame::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+    opacity: 0.55;
+  }
+  .frame::before {
+    top: -1px;
+    left: -1px;
+    border-top: 1.5px solid theme("colors.accent.DEFAULT");
+    border-left: 1.5px solid theme("colors.accent.DEFAULT");
+  }
+  .frame::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 1.5px solid theme("colors.accent.DEFAULT");
+    border-right: 1.5px solid theme("colors.accent.DEFAULT");
+  }
+
+  .eyebrow {
+    font-family: theme("fontFamily.mono");
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    color: theme("colors.accent.DEFAULT");
+  }
+
+  .section-heading {
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    font-weight: 500;
+    color: theme("colors.ink.primary");
+  }
+
+  .hairline {
+    border-color: theme("colors.line.DEFAULT");
+  }
+}
