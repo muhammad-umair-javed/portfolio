@@ -27,6 +27,20 @@
     background-image: theme("backgroundImage.grid");
     background-size: theme("backgroundSize.grid");
     background-position: center top;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.03) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: -1;
   }
 
   h1,
@@ -50,9 +64,7 @@
 }
 
 @layer components {
-  /* Coordinate-frame corner brackets — the site's recurring visual signature,
-     echoing vision-calibration / robot tf-frame markers. Applied as a
-     decorative ::before/::after pair via the .frame class. */
+  /* Coordinate-frame corner brackets */
   .frame {
     position: relative;
   }
@@ -64,6 +76,7 @@
     height: 14px;
     pointer-events: none;
     opacity: 0.55;
+    transition: all 0.3s ease;
   }
   .frame::before {
     top: -1px;
@@ -76,6 +89,14 @@
     right: -1px;
     border-bottom: 1.5px solid theme("colors.accent.DEFAULT");
     border-right: 1.5px solid theme("colors.accent.DEFAULT");
+  }
+  
+  .frame:hover::before, .frame:hover::after {
+    width: 18px;
+    height: 18px;
+    opacity: 1;
+    border-color: theme("colors.accent.bright");
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
   }
 
   .eyebrow {
@@ -94,5 +115,13 @@
 
   .hairline {
     border-color: theme("colors.line.DEFAULT");
+  }
+
+  .glass-panel {
+    @apply bg-surface/40 backdrop-blur-md border border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+  }
+  
+  .glass-card {
+    @apply glass-panel rounded-xl hover:bg-surface/60 transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_25px_rgba(0,229,255,0.15)];
   }
 }
