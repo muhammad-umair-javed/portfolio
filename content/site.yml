@@ -1,10 +1,9 @@
 name: Muhammad Umair Javed
 title: Muhammad Umair Javed, Robotics
-description: Robotics software developer working on manipulation and perception in ROS 2. Final-year Mechatronics and Control Engineering student at UET Lahore.
+description: Robotics software developer with hands-on experience in prototyping and deploying AI and vision pipelines on hardware. Mechatronics and Control Engineering student at UET Lahore.
 
 intro:
-  - "I work on robot manipulation software in ROS 2: a vision-guided pick-and-place pipeline and a waypoint teaching pipeline for a 6-DOF collaborative arm at the Human-Centered Robotics Lab, UET Lahore. I lead my final year project there."
-  - "I am a final-year BS Mechatronics and Control Engineering student. I am now studying learning-based manipulation, starting with teleoperation on an SO101 arm."
+  - "Robotics software developer with hands-on experience in prototyping and deploying AI and vision pipelines on hardware. He is currently exploring embodied AI, from classical methods to learning-based techniques. He is studying for a BS in Mechatronics and Control Engineering at the University of Engineering and Technology (UET), Lahore."
 
 # Fill these in. Empty values are hidden on the site.
 email: "muhammad.umair.javed.mct@gmail.com"
