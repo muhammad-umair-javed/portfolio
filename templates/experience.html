@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% from "macros.html" import entry with context %}
+{% block title %}Experience | {{ site.name }}{% endblock %}
+{% block description %}Research and industry experience of {{ site.name }}.{% endblock %}
+{% block content %}
+<h1>Experience</h1>
+<div class="entries">
+{% for e in experience %}
+  {% call entry(e.period, e.role ~ ', ' ~ e.org, e.summary) %}
+    {% if e.project_objs %}
+    <ul class="role-projects">
+      {% for p in e.project_objs %}<li><a href="{{ root }}projects/{{ p.slug }}.html">{{ p.title }}</a><span>{{ p.experience_note or p.one_liner }}</span></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  {% endcall %}
+{% endfor %}
+</div>
+{% endblock %}

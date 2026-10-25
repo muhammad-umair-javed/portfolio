@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Waypoint teaching and straight-line motion | Muhammad Umair Javed</title>
+<meta name="description" content="Record waypoints by hand-guiding the arm, then replay them as straight-line motions through MoveIt.">
+<meta property="og:title" content="Waypoint teaching and straight-line motion | Muhammad Umair Javed">
+<meta property="og:description" content="Record waypoints by hand-guiding the arm, then replay them as straight-line motions through MoveIt.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230a6c8f'/><text x='16' y='23' font-size='17' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='600'>UJ</text></svg>">
+<link rel="preload" href="../assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="wrap site-header">
+<a class="brand" href="../index.html">Muhammad Umair Javed</a>  <nav aria-label="Main">
+    <a href="../projects.html" aria-current="page">Projects</a>
+    <a href="../experience.html">Experience</a>
+    <a href="../about.html">About</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="project">
+  <p class="crumb"><a href="../projects.html">Projects</a></p>
+  <h1>Waypoint teaching and straight-line motion</h1>
+  <p class="deck">Record waypoints by hand-guiding the arm, then replay them as straight-line motions through MoveIt.</p>
+  <dl class="spec">
+    <div><dt>Status</dt><dd>Ongoing</dd></div>
+<div><dt>Period</dt><dd>2026</dd></div><div><dt>Context</dt><dd>HCRL internship</dd></div><div><dt>My role</dt><dd>Built the ROS 2 pipeline. Before this, the lab had the same function only as a standalone Python script.</dd></div><div><dt>Platform</dt><dd>Dexter 6 Pro, a collaborative arm developed at HCRL</dd></div><div><dt>Tools</dt><dd>ROS 2 Humble, MoveIt 2, Pilz Industrial Motion Planner, IKFast, KDL, pick_ik, C++, Python</dd></div>  </dl>
+  <section>
+    <h2>System outline</h2>
+    <ol class="flow">
+<li>Hand-guiding, or a pose saved from MoveIt</li>
+<li>Waypoint list from the teaching GUI</li>
+<li>Waypoint executor (ROS 2 action)</li>
+<li>Pilz linear planner with an IK solver</li>
+<li>Dexter 6 Pro</li>
+    </ol>
+<p class="note">Simplified view. The executor does not depend on where the waypoints came from.</p>  </section>
+  <div class="body"><h2>What it does</h2>
+<p>Waypoints are recorded by hand-guiding the arm, or by moving it to a pose in MoveIt and saving that pose. A teaching GUI reads the live pose and sends the saved list to an executor, which plans straight-line motion between the waypoints.</p>
+<h2>How the planning changed</h2>
+<p>I started with OMPL Cartesian path interpolation. Consecutive waypoints sometimes caused sudden joint jumps, which I suspect came from configurations near singularities, though I did not confirm that. I moved to the Pilz industrial motion planner, which gives strict straight-line motion and lets each waypoint have its own velocity scaling. The cost is that Pilz rejects a path outright if any part of it hits a singularity, so the quality of the IK solver becomes the limiting factor.</p>
+<h2>IK solver comparison</h2>
+<p>I tried three solvers on this arm. KDL failed often, and pick_ik gave little improvement. IKFast was better than both, so I generated an IKFast plugin for the arm's planning group.</p>
+<h2>Limits</h2>
+<p>The solver comparison was informal. I did not run a benchmark, so I have no solve rates to report.</p></div>
+</article>
+</main>
+<footer class="wrap site-footer">
+  <span>Updated October 2026</span>
+  <span>Content on this site is my own work unless stated. Lab code and CAD are not published.</span>
+</footer>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

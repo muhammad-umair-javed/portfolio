@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CanSat 2D trajectory estimation | Muhammad Umair Javed</title>
+<meta name="description" content="Ground-station software that estimates a CanSat&#39;s 2D path from noisy IMU data using a Kalman filter and double integration.">
+<meta property="og:title" content="CanSat 2D trajectory estimation | Muhammad Umair Javed">
+<meta property="og:description" content="Ground-station software that estimates a CanSat&#39;s 2D path from noisy IMU data using a Kalman filter and double integration.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230a6c8f'/><text x='16' y='23' font-size='17' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='600'>UJ</text></svg>">
+<link rel="preload" href="../assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="wrap site-header">
+<a class="brand" href="../index.html">Muhammad Umair Javed</a>  <nav aria-label="Main">
+    <a href="../projects.html" aria-current="page">Projects</a>
+    <a href="../experience.html">Experience</a>
+    <a href="../about.html">About</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="project">
+  <p class="crumb"><a href="../projects.html">Projects</a></p>
+  <h1>CanSat 2D trajectory estimation</h1>
+  <p class="deck">Ground-station software that estimates a CanSat&#39;s 2D path from noisy IMU data using a Kalman filter and double integration.</p>
+  <dl class="spec">
+    <div><dt>Status</dt><dd>Complete</dd></div>
+<div><dt>Period</dt><dd>2025</dd></div><div><dt>Context</dt><dd>Competition</dd></div><div><dt>My role</dt><dd>Team lead. Implemented the trajectory estimation.</dd></div><div><dt>Platform</dt><dd>CanSat with an MPU6050 IMU</dd></div><div><dt>Tools</dt><dd>Python, Kalman filter, matplotlib, Tkinter, serial communication</dd></div>  </dl>
+  <section>
+    <h2>System outline</h2>
+    <ol class="flow">
+<li>MPU6050 packets, 100 Hz over serial</li>
+<li>Bias correction from a short stationary calibration</li>
+<li>Kalman filter for roll and pitch</li>
+<li>Gravity removal</li>
+<li>High-pass filter and 5-sample moving average</li>
+<li>Rotation into the world frame</li>
+<li>Double integration to 2D position</li>
+    </ol>
+<p class="note">Gyro bias is also updated during stationary periods to limit drift.</p>  </section>
+  <div class="body"><h2>What it does</h2>
+<p>The CanSat streams accelerometer and gyroscope readings over serial at 100 Hz. A Python ground station turns them into a 2D trajectory and plots it live while the CanSat moves.</p>
+<p>A Kalman filter estimates roll and pitch from the accelerometer and gyroscope. The roll and pitch are used to subtract gravity from the acceleration, and the remaining acceleration is filtered, rotated into the world frame and integrated twice to get position.</p>
+<h2>Result</h2>
+<p>The team won the Hidden Gem Award at the National CANSAT Competition, held under World Space Week 2025 by SUPARCO. 25 teams competed.</p>
+<h2>Limits</h2>
+<p>Position from double integration of acceleration drifts over time. The high-pass filter and the gyro recalibration reduce the drift but do not remove it. I did not measure position accuracy against a reference.</p></div>
+</article>
+</main>
+<footer class="wrap site-footer">
+  <span>Updated October 2026</span>
+  <span>Content on this site is my own work unless stated. Lab code and CAD are not published.</span>
+</footer>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

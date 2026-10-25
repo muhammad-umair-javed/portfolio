@@ -1,0 +1,37 @@
+{% macro row(p) %}
+<li class="row" data-areas="{{ p.areas|join(' ') }}" data-contexts="{{ p.contexts|join(' ') }}">
+  <div class="row-text">
+    <h3><a class="stretch" href="{{ root }}projects/{{ p.slug }}.html">{{ p.title }}</a></h3>
+    <p class="one">{{ p.one_liner }}</p>
+    <p class="meta"><span class="status">{{ site.statuses[p.status] }}</span>{% if p.areas %}<span>{% for a in p.areas %}{{ site.areas[a] }}{% if not loop.last %}, {% endif %}{% endfor %}</span>{% endif %}</p>
+  </div>
+  {% if p.hero %}<img class="row-media" src="{{ root }}media/{{ p.hero }}" alt="" loading="lazy">{% endif %}
+</li>
+{% endmacro %}
+
+{% macro entry(when, what, detail) %}
+<div class="entry">
+  <p class="when">{{ when }}</p>
+  <div>
+    <p class="what">{{ what }}</p>
+    {% if detail %}<p class="detail">{{ detail }}</p>{% endif %}
+    {{ caller() if caller else '' }}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro contact(site, has_cv, root) %}
+<ul class="links">
+  {% if site.email %}<li><a href="mailto:{{ site.email }}">Email</a></li>{% endif %}
+  {% if site.github %}<li><a href="{{ site.github }}">GitHub</a></li>{% endif %}
+  {% if site.linkedin %}<li><a href="{{ site.linkedin }}">LinkedIn</a></li>{% endif %}
+  {% if has_cv %}<li><a href="{{ root }}cv.pdf">CV (PDF)</a></li>{% endif %}
+</ul>
+{% endmacro %}
+
+{% macro pair(label, text) %}
+<div class="entry">
+  <p class="what">{{ label }}</p>
+  <p class="detail">{{ text }}</p>
+</div>
+{% endmacro %}

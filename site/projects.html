@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects | Muhammad Umair Javed</title>
+<meta name="description" content="Robotics projects by Muhammad Umair Javed: manipulation, perception, control and estimation.">
+<meta property="og:title" content="Projects | Muhammad Umair Javed">
+<meta property="og:description" content="Robotics projects by Muhammad Umair Javed: manipulation, perception, control and estimation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230a6c8f'/><text x='16' y='23' font-size='17' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='600'>UJ</text></svg>">
+<link rel="preload" href="assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="wrap site-header">
+<a class="brand" href="index.html">Muhammad Umair Javed</a>  <nav aria-label="Main">
+    <a href="projects.html" aria-current="page">Projects</a>
+    <a href="experience.html">Experience</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<h1>Projects</h1>
+<div class="filters">
+  <div class="filter-group" role="group" aria-label="Filter by area">
+    <span class="filter-name">Area</span>
+<button type="button" data-group="area" data-filter="manipulation" aria-pressed="false">Manipulation</button><button type="button" data-group="area" data-filter="perception" aria-pressed="false">Perception</button><button type="button" data-group="area" data-filter="control" aria-pressed="false">Control</button><button type="button" data-group="area" data-filter="estimation" aria-pressed="false">Estimation</button>  </div>
+  <div class="filter-group" role="group" aria-label="Filter by context">
+    <span class="filter-name">Context</span>
+<button type="button" data-group="context" data-filter="hcrl" aria-pressed="false">HCRL internship</button><button type="button" data-group="context" data-filter="fyp" aria-pressed="false">Final year project</button><button type="button" data-group="context" data-filter="coursework" aria-pressed="false">Coursework</button><button type="button" data-group="context" data-filter="competition" aria-pressed="false">Competition</button>  </div>
+  <p class="count" id="count" aria-live="polite">4 projects</p>
+</div>
+<ol class="index">
+<li class="row" data-areas="manipulation perception" data-contexts="hcrl fyp">
+  <div class="row-text">
+    <h3><a class="stretch" href="projects/vision-guided-pick-and-place.html">Vision-guided pick and place for test tube sorting</a></h3>
+    <p class="one">A ROS 2 pipeline that detects test tubes with a camera and sorts them with a 6-DOF arm, built on MoveIt Task Constructor.</p>
+    <p class="meta"><span class="status">Ongoing</span><span>Manipulation, Perception</span></p>
+  </div>
+</li>
+<li class="row" data-areas="manipulation control" data-contexts="hcrl">
+  <div class="row-text">
+    <h3><a class="stretch" href="projects/waypoint-teaching-and-ik.html">Waypoint teaching and straight-line motion</a></h3>
+    <p class="one">Record waypoints by hand-guiding the arm, then replay them as straight-line motions through MoveIt.</p>
+    <p class="meta"><span class="status">Ongoing</span><span>Manipulation, Control</span></p>
+  </div>
+</li>
+<li class="row" data-areas="control manipulation" data-contexts="coursework">
+  <div class="row-text">
+    <h3><a class="stretch" href="projects/ur5-matlab-ros2-bridge.html">UR5 control from MATLAB over ROS 2</a></h3>
+    <p class="one">A two-way link between MATLAB and Simulink and a simulated UR5 in Gazebo, with analytical inverse kinematics and joint-space trajectories.</p>
+    <p class="meta"><span class="status">Complete</span><span>Control, Manipulation</span></p>
+  </div>
+</li>
+<li class="row" data-areas="estimation" data-contexts="competition">
+  <div class="row-text">
+    <h3><a class="stretch" href="projects/cansat-trajectory-estimation.html">CanSat 2D trajectory estimation</a></h3>
+    <p class="one">Ground-station software that estimates a CanSat&#39;s 2D path from noisy IMU data using a Kalman filter and double integration.</p>
+    <p class="meta"><span class="status">Complete</span><span>Estimation</span></p>
+  </div>
+</li>
+</ol>
+</main>
+<footer class="wrap site-footer">
+  <span>Updated October 2026</span>
+  <span>Content on this site is my own work unless stated. Lab code and CAD are not published.</span>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vision-guided pick and place for test tube sorting | Muhammad Umair Javed</title>
+<meta name="description" content="A ROS 2 pipeline that detects test tubes with a camera and sorts them with a 6-DOF arm, built on MoveIt Task Constructor.">
+<meta property="og:title" content="Vision-guided pick and place for test tube sorting | Muhammad Umair Javed">
+<meta property="og:description" content="A ROS 2 pipeline that detects test tubes with a camera and sorts them with a 6-DOF arm, built on MoveIt Task Constructor.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230a6c8f'/><text x='16' y='23' font-size='17' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='600'>UJ</text></svg>">
+<link rel="preload" href="../assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="wrap site-header">
+<a class="brand" href="../index.html">Muhammad Umair Javed</a>  <nav aria-label="Main">
+    <a href="../projects.html" aria-current="page">Projects</a>
+    <a href="../experience.html">Experience</a>
+    <a href="../about.html">About</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="project">
+  <p class="crumb"><a href="../projects.html">Projects</a></p>
+  <h1>Vision-guided pick and place for test tube sorting</h1>
+  <p class="deck">A ROS 2 pipeline that detects test tubes with a camera and sorts them with a 6-DOF arm, built on MoveIt Task Constructor.</p>
+  <dl class="spec">
+    <div><dt>Status</dt><dd>Ongoing</dd></div>
+<div><dt>Period</dt><dd>July 2026 to present</dd></div><div><dt>Context</dt><dd>HCRL internship, Final year project</dd></div><div><dt>My role</dt><dd>Built the ROS 2 pipeline around the arm. The YOLO model and the camera calibration matrix came from earlier work in the lab.</dd></div><div><dt>Platform</dt><dd>Dexter 6 Pro, a collaborative arm developed at HCRL</dd></div><div><dt>Tools</dt><dd>ROS 2 Humble, MoveIt 2, MoveIt Task Constructor, ros2_control, YOLO, OpenCV, C++, Python</dd></div>  </dl>
+  <section>
+    <h2>System outline</h2>
+    <ol class="flow">
+<li>Industrial 2D camera node</li>
+<li>YOLO detection of test tubes</li>
+<li>Scene builder, which adds collision objects</li>
+<li>Orchestrator, which picks the next object</li>
+<li>Pick-and-place action server (MoveIt Task Constructor)</li>
+<li>ros2_control interface with a human confirmation gate</li>
+<li>Dexter 6 Pro</li>
+    </ol>
+<p class="note">Simplified view of the data and command flow.</p>  </section>
+  <div class="body"><h2>What it does</h2>
+<p>A camera finds the test tubes, and the arm picks each one and places it at its destination. Detections become collision objects in the MoveIt planning scene, and the motion for each pick and place is planned with MoveIt Task Constructor (MTC).</p>
+<h2>What I built</h2>
+<ul>
+<li>The ROS 2 workspace around the arm: the MoveIt 2 configuration, and the camera frame in the robot's TF tree using the existing calibration matrix.</li>
+<li>A camera node for the industrial 2D camera (vendor SDK, fixed white balance) and a YOLO detection node. Images are normalized before detection because the lighting at run time differed from the training images.</li>
+<li>A scene builder that turns detections into collision objects, and an orchestrator that chooses the next object and sends it to the pick-and-place action server.</li>
+<li>The action server, which runs an MTC task: grasp pose generation, inverse kinematics, then approach and retreat moves.</li>
+<li>Changes to the ros2_control hardware interface so ROS 2 can read from and command the real arm, with a human confirmation gate on the command path.</li>
+</ul>
+<h2>Result</h2>
+<p>The pipeline runs end to end in simulation. I tested it once on the real arm, and the task worked.</p>
+<h2>Limits</h2>
+<p>Hardware testing has been limited so far, and I have not measured a success rate. The low-level motor control software and its own safety limits belong to the lab. My confirmation gate covers only the ROS 2 command path.</p></div>
+</article>
+</main>
+<footer class="wrap site-footer">
+  <span>Updated October 2026</span>
+  <span>Content on this site is my own work unless stated. Lab code and CAD are not published.</span>
+</footer>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>
