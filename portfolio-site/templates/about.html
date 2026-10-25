@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% from "macros.html" import entry, pair with context %}
+{% block title %}About | {{ site.name }}{% endblock %}
+{% block description %}Education, platforms, skills and awards of {{ site.name }}.{% endblock %}
+{% block content %}
+<h1>About</h1>
+
+<section class="block">
+  <h2>Education</h2>
+  {% for e in about.education %}{{ entry(e.period, e.degree, e.school ~ ('. ' ~ e.note if e.note else '')) }}{% endfor %}
+</section>
+
+<section class="block">
+  <h2>Hardware platforms</h2>
+  {% for pl in about.platforms %}{{ pair(pl.name, pl.text) }}{% endfor %}
+</section>
+
+<section class="block">
+  <h2>Skills</h2>
+  {% for group, items in about.skills.items() %}{{ pair(group, items|join(', ')) }}{% endfor %}
+</section>
+
+<section class="block">
+  <h2>Awards and scholarships</h2>
+  {% for a in about.awards %}{{ entry(a.date, a.title, a.detail) }}{% endfor %}
+</section>
+
+<section class="block">
+  <h2>Leadership</h2>
+  {% for l in about.leadership %}{{ entry(l.period, l.role, l.detail) }}{% endfor %}
+</section>
+{% endblock %}
