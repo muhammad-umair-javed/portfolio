@@ -110,3 +110,5 @@ code{font:.88em ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:
 .site-footer{border-top:1px solid var(--rule);padding-top:1.25rem;padding-bottom:2.5rem;font-size:.85rem;color:var(--muted);display:flex;justify-content:space-between;gap:.5rem 1.5rem;flex-wrap:wrap}
 .wrap.site-footer{max-width:52rem}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto !important}}
+
+.platform-img{display:block;margin-top:.75rem;width:100%;max-width:26rem;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--rule);border-radius:3px}

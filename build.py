@@ -145,6 +145,10 @@ def main():
     experience = load_experience(by_slug)
     about = load_yaml(CONTENT / "about.yml", {})
 
+    for pl in about.get("platforms", []):
+        if not media_ok(pl.get("image"), "about.yml"):
+            pl["image"] = None
+
     used_areas = [k for k in cfg["areas"] if any(k in p["areas"] for p in projects)]
     used_contexts = [k for k in cfg["contexts"] if any(k in p["contexts"] for p in projects)]
 

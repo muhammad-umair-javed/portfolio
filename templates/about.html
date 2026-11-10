@@ -12,7 +12,16 @@
 
 <section class="block">
   <h2>Hardware platforms</h2>
-  {% for pl in about.platforms %}{{ pair(pl.name, pl.text) }}{% endfor %}
+  {% for pl in about.platforms %}
+    <div class="entry">
+      <p class="what">{{ pl.name }}</p>
+      <div>
+        <p class="detail">{{ pl.text }}</p>
+        {% if pl.image %}<img class="platform-img" src="{{ root }}media/{{ pl.image }}" alt="{{ pl.name }}" loading="lazy">{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+
 </section>
 
 <section class="block">

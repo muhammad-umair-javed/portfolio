@@ -6,10 +6,11 @@ education:
 
 platforms:
   - name: Dexter 6 Pro
-    text: "A lightweight 6-DOF collaborative arm developed at HCRL, with a 3 kg payload and a 750 mm workspace. I work on its ROS 2 software stack."
+    image: platforms/dexter_6pro.jpeg
+    text: "A lightweight 6-DOF collaborative arm developed at HCRL, with a 3 kg payload and a 750 mm workspace. I work on its ROS 2 software."
   - name: SO101
-    text: "An open-source arm for research in learning-based robotics. I 3D printed, assembled and configured one, and set up leader-follower teleoperation as the first step toward data collection."
-
+    image: platforms/so101.jpeg
+    text: "An open-source low-cost arm for learning-based robotics. I built one from 3D printed parts, configured it, and set up teleoperation with a leader arm for data collection."
 skills:
   Programming: [C/C++, Python, MATLAB]
   Robotics software: [ROS 2, MoveIt 2, MoveIt Task Constructor, ros2_control, Nav2, SLAM Toolbox, behavior trees, URDF, Xacro]
