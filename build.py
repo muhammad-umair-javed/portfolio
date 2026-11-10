@@ -47,14 +47,18 @@ def lint(path, text, banned):
 
 
 def media_ok(rel, where):
-    """True if content/media/<rel> exists. Warns once if it does not."""
+    """True if content/media/<rel> is a real file. Warns once if it is not."""
     if not rel:
         return False
-    if (CONTENT / "media" / rel).exists():
-        return True
-    warn(f"{where}: missing file content/media/{rel}")
-    return False
-
+    path = CONTENT / "media" / rel
+    if not path.exists():
+        warn(f"{where}: missing file content/media/{rel}")
+        return False
+    with path.open("rb") as f:
+        if f.read(40).startswith(b"version https://git-lfs"):
+            warn(f"{where}: content/media/{rel} is an LFS pointer, not the real file")
+            return False
+    return True
 
 IMG_RE = re.compile(
     r'<p><img alt="(?P<alt>[^"]*)" src="(?P<src>[^"]+)"(?: title="[^"]*")? ?/></p>'
