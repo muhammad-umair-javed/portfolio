@@ -4,8 +4,8 @@ one_liner: A differential-drive robot that maps its surroundings and navigates o
 status: simulation
 areas: [navigation, perception]
 contexts: [personal]
-featured: false
-order: 10
+featured: true
+order: 4
 platform: Custom differential-drive robot, simulated in Gazebo Classic
 tools: [ROS 2 Humble, Nav2, SLAM Toolbox, AMCL, Spatio-Temporal Voxel Layer, behavior trees, URDF, Xacro]
 role: Built the robot model and the navigation setup, from mapping to obstacle avoidance.

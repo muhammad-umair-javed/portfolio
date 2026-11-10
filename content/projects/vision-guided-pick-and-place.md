@@ -5,7 +5,7 @@ status: complete
 areas: [manipulation, perception]
 contexts: [hcrl]
 featured: true
-order: 1
+order: 2
 period: July 2026 to September 2026
 platform: Dexter 6 Pro, a collaborative arm developed at HCRL
 tools: [ROS 2 Humble, MoveIt 2, MoveIt Task Constructor, ros2_control, YOLO, OpenCV, C++, Python]
@@ -45,6 +45,3 @@ The pipeline runs end to end in simulation and on the real arm.
 
 ![The same pipeline in simulation: Gazebo with the planning scene in RViz](media/pick-and-place/rviz_gazebo_sim_dexter.png)
 
-## Limits
-
-I have run it on the real arm once and have not measured a success rate.

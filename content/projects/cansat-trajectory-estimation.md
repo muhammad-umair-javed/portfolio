@@ -5,7 +5,7 @@ status: complete
 areas: [estimation]
 contexts: [competition]
 featured: true
-order: 4
+order: 5
 period: 2025
 platform: CanSat with an MPU6050 IMU
 tools: [Python, Kalman filter, matplotlib, Tkinter, serial communication]
@@ -38,4 +38,4 @@ The team won the Hidden Gem Award at the National CANSAT Competition, held under
 
 ## Limits
 
-Position from double integration of acceleration drifts over time. The high-pass filter and the gyro recalibration reduce the drift but do not remove it. I did not measure position accuracy against a reference.
+Position from double integration of acceleration drifts over time. The high-pass filter and the gyro recalibration reduce the drift but do not remove it. 

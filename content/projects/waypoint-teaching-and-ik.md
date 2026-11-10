@@ -4,8 +4,8 @@ one_liner: Record waypoints by hand-guiding the arm, then replay them as straigh
 status: complete
 areas: [manipulation, control]
 contexts: [hcrl]
-featured: true
-order: 2
+featured: false
+order: 6
 period: 2026
 platform: Dexter 6 Pro, a collaborative arm developed at HCRL
 tools: [ROS 2 Humble, MoveIt 2, Pilz Industrial Motion Planner, IKFast, KDL, pick_ik, C++, Python]
