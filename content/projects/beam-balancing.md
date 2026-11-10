@@ -2,6 +2,7 @@
 title: Beam balancing with two BLDC motors
 one_liner: A center-pivoted beam held level by two BLDC motors, with a PID controller running bare metal on a TM4C123GH6PM.
 status: complete
+period: Fall 2025
 areas: [control, embedded]
 contexts: [coursework]
 featured: false

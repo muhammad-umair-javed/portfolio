@@ -2,6 +2,7 @@
 title: Waypoint teaching and straight-line motion
 one_liner: Record waypoints by hand-guiding the arm, then replay them as straight-line motions through MoveIt.
 status: complete
+period: August 2026
 areas: [manipulation, control]
 contexts: [hcrl]
 featured: false

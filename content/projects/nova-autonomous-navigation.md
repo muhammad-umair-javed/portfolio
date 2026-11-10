@@ -2,6 +2,7 @@
 title: Autonomous navigation with 3D obstacle avoidance
 one_liner: A differential-drive robot that maps its surroundings and navigates on its own in Gazebo, using Nav2 and a depth camera for 3D obstacle avoidance.
 status: simulation
+period: April 2026 to May 2026
 areas: [navigation, perception]
 contexts: [personal]
 featured: true

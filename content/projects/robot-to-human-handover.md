@@ -2,6 +2,7 @@
 title: Robot-to-human object handover
 one_liner: The Dexter 6 Pro picks up a box and hands it to a person, using a depth camera to find the box and the hand. Built and tested in simulation and on the real arm.
 status: ongoing
+period: September 2026 to Present
 areas: [manipulation, perception]
 contexts: [fyp]
 featured: true

@@ -2,6 +2,7 @@
 title: Self-balancing robot in ROS 2 and Gazebo
 one_liner: A two-wheeled robot that balances itself with an IMU and a PID controller. I built the simulation, and the team also built a hardware version.
 status: complete
+period: Spring 2026
 areas: [control]
 contexts: [coursework]
 featured: false

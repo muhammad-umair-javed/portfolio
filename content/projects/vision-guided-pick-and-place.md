@@ -2,6 +2,7 @@
 title: Vision-guided pick and place for test tube sorting
 one_liner: A ROS 2 pipeline that detects test tubes with a camera and sorts them with a 6-DOF arm, built on MoveIt Task Constructor.
 status: complete
+period: July 2026 to September 2026
 areas: [manipulation, perception]
 contexts: [hcrl]
 featured: true

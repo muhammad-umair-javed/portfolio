@@ -2,6 +2,7 @@
 title: UR5 control from MATLAB over ROS 2
 one_liner: A two-way link between MATLAB and Simulink and a simulated UR5 in Gazebo, with analytical inverse kinematics and joint-space trajectories.
 status: complete
+period: Spring 2026
 areas: [control, manipulation]
 contexts: [coursework]
 featured: true

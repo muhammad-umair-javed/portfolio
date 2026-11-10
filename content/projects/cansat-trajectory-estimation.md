@@ -2,6 +2,7 @@
 title: CanSat 2D trajectory estimation
 one_liner: Ground-station software that estimates a CanSat's 2D path from noisy IMU data using a Kalman filter and double integration.
 status: complete
+period: October 2025
 areas: [estimation]
 contexts: [competition]
 featured: true
