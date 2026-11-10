@@ -10,7 +10,7 @@ period: July 2026 to present
 platform: Dexter 6 Pro with an Intel RealSense D435i depth camera
 tools: [ROS 2 Humble, Gazebo Fortress, MoveIt 2, MoveIt Task Constructor, ros2_control, AprilTag, MediaPipe, C++, Python]
 role: Team lead of the final year project. I implemented the handover pipeline in simulation and on the arm.
-hero: handover/handover_hardware.jpeg
+hero: handover/handover_hardware.png
 hero_alt: Dexter 6 Pro handing a box to a person
 hero_caption: The Dexter 6 Pro handing a box over on the real arm.
 video: handover/handover_demo.mp4
